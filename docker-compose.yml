@@ -1,6 +1,6 @@
 version: '1'
 services:
-  server:
+  servertest:
     restart: "no"
 
     build: .
