@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: myapp
+      app: server
   replicas: 2
   template:
     metadata:
@@ -13,7 +13,7 @@ spec:
         app: server
     spec:
       containers:
-        - name: myapp
-          image: test/argocd-app:1.2
+        - name: server
+          image: server/argocd-app:1.2
           ports:
             - containerPort: 8080
