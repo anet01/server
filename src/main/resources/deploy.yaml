@@ -1,24 +1,19 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: myapp-argo-application
-  namespace: argocd
+  name: server
 spec:
-  project: default
-
-  source:
-    repoURL: https://github.com/anet01/server.git
-    targetRevision: HEAD
-    path: dev
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: myapp
-
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
-
-    automated:
-      selfHeal: true
-      prune: true
-
+  selector:
+    matchLabels:
+      app: myapp
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: server
+    spec:
+      containers:
+        - name: myapp
+          image: test/argocd-app:1.2
+          ports:
+            - containerPort: 8080
