@@ -23,6 +23,10 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.json:json:20230227")
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("io.swagger.core.v3:swagger-annotations:2.2.15")
+
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")

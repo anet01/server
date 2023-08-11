@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: myapp-argo-application
+  name: myapp123
   namespace: argocd
 spec:
   project: default
-
+  replicas: 2
   source:
     repoURL: https://github.com/anet01/server.git
     targetRevision: HEAD
@@ -21,3 +21,7 @@ spec:
     automated:
       selfHeal: true
       prune: true
+
+server:
+  servlet:
+    context-path: /api
