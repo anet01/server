@@ -1,15 +1,15 @@
-apiVersion: argoproj.io/v1alpha1
+apiVersion: app/v1
 kind: Application
 metadata:
-  name: myapp123
+  name: myapp
   namespace: argocd
 spec:
   project: default
-  replicas: 2
+
   source:
     repoURL: https://github.com/anet01/server.git
-    targetRevision: master
-    path: master
+    targetRevision: HEAD
+    path: dev
   destination:
     server: https://kubernetes.default.svc
     namespace: myapp
@@ -21,7 +21,3 @@ spec:
     automated:
       selfHeal: true
       prune: true
-
-server:
-  servlet:
-    context-path: /api
