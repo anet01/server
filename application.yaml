@@ -8,8 +8,8 @@ spec:
   replicas: 2
   source:
     repoURL: https://github.com/anet01/server.git
-    targetRevision: HEAD
-    path: dev
+    targetRevision: master
+    path: master
   destination:
     server: https://kubernetes.default.svc
     namespace: myapp
